@@ -3,6 +3,7 @@ import { useAppContext } from '../Context/AppContext';
 import { Link, useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import ProductCard from '../Components/ProductCard';
+import { getProductImageUrl } from '../utils/productImage';
 
 function ProductDetails() {
     const { products, navigate, currency, addtoCart } = useAppContext();
@@ -64,7 +65,7 @@ function ProductDetails() {
                             initial={{ scale: 0.9, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ delay: 0.2 }}
-                            src={`http://localhost:4000${product.image}`} 
+                            src={getProductImageUrl(product.image)}
                             alt={product.name} 
                             className="w-full max-w-md h-auto object-contain drop-shadow-2xl"
                         />
