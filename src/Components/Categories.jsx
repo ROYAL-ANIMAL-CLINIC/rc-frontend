@@ -1,7 +1,7 @@
 import React from 'react';
 import { useAppContext } from '../Context/AppContext';
 import catfoodimg from '../assets/catFood.jpg';
-import toysimg from '../assets/toys.jpg';
+import toysimg from '../assets/Toys.jpg';
 import dogfoodimg from '../assets/dogFood.jpg';
 import suppimg from '../assets/suppliments.jpg';
 import accessoriesimg from '../assets/accessories.jpg';
