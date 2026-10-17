@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useAppContext } from "../Context/AppContext";
+import { getProductImageUrl } from "../utils/productImage";
 
 const StarIcon = ({ filled }) => (
   <svg
@@ -45,11 +46,7 @@ const ProductCard = ({ product }) => {
 
   const imgSrc = imageError
     ? fallbackImage
-    : product.image?.startsWith("http")
-      ? product.image
-      : product.image
-        ? `http://localhost:4000${product.image}`
-        : fallbackImage;
+    : getProductImageUrl(product.image) || fallbackImage;
 
   return (
     <div

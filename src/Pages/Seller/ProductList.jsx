@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAppContext } from '../../Context/AppContext';
 import { ShopCategories } from '../../Components/Categories';
 import toast from 'react-hot-toast';
+import { getProductImageUrl } from '../../utils/productImage';
 
 function ProductList() {
     const { products, currency, axios, fetchProducts } = useAppContext();
@@ -65,7 +66,7 @@ function ProductList() {
                                 <tr key={product._id} className="hover:bg-gray-50 transition-colors">
                                     <td className="px-4 py-3">
                                         <div className="flex items-center gap-3">
-                                            <img src={`http://localhost:4000${product.image}`} alt={product.name} className="w-12 h-12 object-cover rounded-lg border border-gray-200" />
+                                            <img src={getProductImageUrl(product.image)} alt={product.name} className="w-12 h-12 object-cover rounded-lg border border-gray-200" />
                                             <span className="font-medium text-gray-800 hidden sm:block">{product.name}</span>
                                         </div>
                                     </td>
@@ -118,7 +119,7 @@ function ProductList() {
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
                             </button>
                         </div>
-                        <img src={`http://localhost:4000${viewProduct.image}`} alt={viewProduct.name} className="w-full h-48 object-cover rounded-xl mb-4 border border-gray-100" />
+                        <img src={getProductImageUrl(viewProduct.image)} alt={viewProduct.name} className="w-full h-48 object-cover rounded-xl mb-4 border border-gray-100" />
                         <div className="space-y-2 text-sm">
                             <div className="flex justify-between"><span className="text-gray-500 font-medium">Name</span><span className="text-gray-800 font-semibold">{viewProduct.name}</span></div>
                             <div className="flex justify-between"><span className="text-gray-500 font-medium">Category</span><span className="text-gray-800">{viewProduct.category}</span></div>

@@ -3,6 +3,7 @@ import { useAppContext } from "../Context/AppContext";
 import { dummyAddress } from "../assets/products";
 import ProductCard from "../Components/ProductCard";
 import toast from "react-hot-toast";
+import { getProductImageUrl } from "../utils/productImage";
 
 function Cart() {
   const {
@@ -193,7 +194,7 @@ function Cart() {
                                                  {" "}
                   <img
                     className="max-w-full h-full object-cover"
-                    src={`${import.meta.env.VITE_BACKEND_URL}/${product.image}`}
+                    src={getProductImageUrl(product.image)}
                     alt={product.name}
                   />
                                              {" "}
